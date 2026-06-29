@@ -1,0 +1,24 @@
+data:
+  file_paths:
+    AAPL: "test_aapl_p3.csv"
+
+strategy:
+  name: "SMACrossoverStrategy"  # Supports "SMACrossoverStrategy" or "MeanReversionStrategy"
+  parameters:
+    short_window: 5
+    long_window: 10
+    # For MeanReversionStrategy:
+    # window: 20
+    # entry_threshold: 2.0
+
+portfolio:
+  initial_capital: 100000.0
+  target_percent: 0.5
+  max_position_pct: 0.5
+  latency_seconds: 120  # Delay before order reaches market (2 minutes)
+
+execution:
+  commission: 10.0      # Flat commission per trade
+  slippage_bps: 50.0    # Fixed slippage (50 basis points)
+  volume_impact_coeff: 0.5
+  return_latency_seconds: 10  # Delay before fill reaches portfolio (10 seconds)
